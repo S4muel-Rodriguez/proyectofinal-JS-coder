@@ -1,0 +1,166 @@
+  
+  body {
+  animation: cambioDeColor 5s infinite alternate;  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+  padding: 0px;
+  margin: 0px;
+}
+
+@keyframes cambioDeColor {
+  0% {
+    background-image: linear-gradient(to right, #4CAF50, #4B0082); 
+  }
+  100% {
+    background-image: linear-gradient(to right, #483D8B, #800080);  
+  }
+}
+.barra-menu {
+  background-color: #2b2b2b;  
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);  
+  margin: 0; 
+  padding: 0;  
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  display: inline;
+  padding: 0px;
+  margin: 0px;
+}
+
+.nav-list li a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;  
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+
+}
+
+.nav-list li a:hover {
+  background-color: #1e352f;  
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.3);  
+}
+/* Estilos para el título h1 */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  color: rgba(39, 25, 77, 0.788);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  
+  border-radius: 90px;
+}
+
+  
+h1:hover {
+  transform: translateY(-2px);  
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);  
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+main img {
+  width: 300px;  
+  height: auto;  
+  border-radius: 10px;  
+  box-shadow: 3px 4px 10px seagreen;  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}
+
+main img:hover {
+  transform: scale(1.05);  
+  box-shadow: 4px 6px 15px blueviolet;  
+}
+footer {
+  text-align: center;
+}
+
+footer h2 {
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+footer .rs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .rs a {
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 1s ease;
+}
+
+footer .rs a:hover {
+  background-color: seagreen;
+  color: #483D8B;
+}
+
+footer .rs img {
+  margin-top: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+footer .rs img:hover {
+  transform: scale(1.1);
+}
+  
+
+  
+@media only screen and (max-width: 600px) {
+  body {
+      font-size: 14px; 
+  }
+  header {
+      padding: 5px;  
+  }
+  nav ul {
+      flex-direction: column; 
+      text-align: center;  
+  }
+  nav ul li {
+      margin-right: 0;  
+      margin-bottom: 5px;  
+  }
+  main {
+      padding: 10px;  
+  }
+  main img {
+      max-width: 100%; 
+  }
+  footer {
+      padding: 5px;  
+  }
+  .rs {
+      flex-direction: column;  
+      align-items: center;  
+  }
+  .rs img {
+      margin-left: 0; 
+      margin-top: 5px; 
+  }
+}
+

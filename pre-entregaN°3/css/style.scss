@@ -1,0 +1,20 @@
+$color-principal: aqua;
+$color-letra: black;
+h2{
+    color: $color-letra;
+    background-color: $color-principal;
+    width: 500px;
+    height: 38px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    border-radius: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+.text-center{
+    color: royalblue;
+}

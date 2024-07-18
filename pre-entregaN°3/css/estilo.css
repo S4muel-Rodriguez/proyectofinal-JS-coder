@@ -1,0 +1,21 @@
+h2 {
+  color: black;
+  background-color: aqua;
+  width: 500px;
+  height: 38px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: medium;
+  border-radius: 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.text-center {
+  color: royalblue;
+}
+
+/*# sourceMappingURL=estilo.css.map */

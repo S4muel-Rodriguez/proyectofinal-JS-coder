@@ -1,0 +1,105 @@
+    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0F0F0F;
+    color: #fff;
+}
+
+header {
+    background-color: #1F1F1F;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.infodenosotros {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.ceo,
+.famosos,
+.sectores,
+footer {
+    text-align: center;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #1F1F1F;
+}
+
+.ceo img,
+.famosos img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #006400; /* verde oscuro */
+    transition: box-shadow 0.3s ease;
+}
+
+.ceo img:hover,
+.famosos img:hover {
+    box-shadow: 0 0 20px #006400; /* verde oscuro con mayor intensidad */
+}
+
+.ceo p,
+.famosos p {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.ceo ol,
+.sectores ul {
+    text-align: left;
+    margin-left: 20px;
+    color: #ccc;
+}
+
+.sectores li {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+footer {
+    background-color: #1F1F1F;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contactanos a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s ease;
+    display: block;
+    padding: 10px;
+    background-color: #8A2BE2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 100, 0, 0.5); /* verde oscuro */
+}
+
+.contactanos a:hover {
+    background-color: #4B0082;
+    box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5); /* verde oscuro con mayor intensidad */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.contactanos {
+    animation: all 1s ease;
+}
