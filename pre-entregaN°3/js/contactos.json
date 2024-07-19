@@ -1,0 +1,10 @@
+{
+    "order": {
+      "food": "Comida ingresada por el usuario",
+      "drink": "Bebida ingresada por el usuario",
+      "quantity": "Cantidad ingresada por el usuario",
+      "comment": "Comentario ingresado por el usuario",
+      "totalPrice": "Precio calculado basado en la cantidad",
+      "hasComment": "true o false basado en si hay un comentario"
+    }
+  }

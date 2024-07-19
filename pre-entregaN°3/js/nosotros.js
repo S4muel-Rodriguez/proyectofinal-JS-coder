@@ -128,3 +128,67 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Por favor, completa todos los campos correctamente.');
     }
 });
+
+
+// Función para mostrar la información del equipo
+const displayTeam = (team) => {
+    const main = document.querySelector('main');
+    main.innerHTML = '<h2>Conoce a Nuestro Equipo:</h2>';
+
+    team.forEach(member => {
+        const memberDiv = document.createElement('div');
+        memberDiv.className = 'team-member';
+
+        const photo = document.createElement('img');
+        photo.src = member.photo;
+        photo.alt = `Foto de ${member.name}`;
+        photo.style.width = '150px'; // Ajusta el tamaño según sea necesario
+
+        const name = document.createElement('h3');
+        name.textContent = member.name;
+
+        const role = document.createElement('h4');
+        role.textContent = member.role;
+
+        const bio = document.createElement('p');
+        bio.textContent = member.bio;
+
+        memberDiv.appendChild(photo);
+        memberDiv.appendChild(name);
+        memberDiv.appendChild(role);
+        memberDiv.appendChild(bio);
+
+        main.appendChild(memberDiv);
+    });
+};
+
+// Cargar datos desde el archivo JSON usando fetch
+const loadTeamData = async () => {
+    const loadingMessage = document.getElementById('loading');
+    loadingMessage.style.display = 'block'; // Mostrar mensaje de carga
+
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        // Suponiendo que contiene los datos del equipo
+        displayTeam(data.team);
+
+    } catch (error) {
+        console.error('Error al cargar los datos:', error);
+        alert('No se pudo cargar la información del equipo. Por favor, intenta de nuevo más tarde.');
+    } finally {
+        loadingMessage.style.display = 'none'; // Ocultar mensaje de carga
+    }
+};
+
+// Llamada a la función para cargar los datos al iniciar la página
+document.addEventListener('DOMContentLoaded', () => {
+    loadTeamData();
+});
+
+

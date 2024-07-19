@@ -1,0 +1,10 @@
+{
+    "comidas": [
+      { "nombre": "papas", "precio": 10 },
+      { "nombre": "milanesa", "precio": 20 },
+      { "nombre": "carne roja", "precio": 30 },
+      { "nombre": "pechuga", "precio": 25 },
+      { "nombre": "ensalada", "precio": 15 }
+    ]
+  }
+  

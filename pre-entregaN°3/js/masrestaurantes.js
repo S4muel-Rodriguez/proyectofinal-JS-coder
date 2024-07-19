@@ -98,3 +98,21 @@ const key = 'dato de restaurante';
 saveToLocalStorage(key, restaurants);
 const retrievedData = retrieveFromLocalStorage(key);
 console.log('Datos recuperados del localStorage:', retrievedData);
+
+// Cargar datos desde el archivo JSON usando fetch
+const loadRestaurants = async () => {
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+        const data = await response.json();
+        displayRestaurants(data.restaurants);
+    } catch (error) {
+        console.error('Error al cargar los datos:', error);
+    }
+};
+
+// Llamada a la función para cargar los datos al iniciar la página
+loadRestaurants();
+

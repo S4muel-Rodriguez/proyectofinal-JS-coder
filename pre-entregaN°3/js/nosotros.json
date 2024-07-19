@@ -1,0 +1,29 @@
+{
+    "team": [
+      {
+        "name": "Ana Pérez",
+        "role": "CEO",
+        "bio": "Ana Pérez es la fundadora y CEO de la empresa. Con más de 20 años de experiencia en el sector, ha liderado el crecimiento y la innovación de la empresa desde su inicio.",
+        "photo": "ana_perez.jpg"
+      },
+      {
+        "name": "Carlos Gómez",
+        "role": "CTO",
+        "bio": "Carlos Gómez es el Director de Tecnología y supervisa el desarrollo de productos innovadores. Tiene una amplia experiencia en el desarrollo de software y gestión de equipos técnicos.",
+        "photo": "carlos_gomez.jpg"
+      },
+      {
+        "name": "Laura Martínez",
+        "role": "CFO",
+        "bio": "Laura Martínez es la Directora Financiera y es responsable de la estrategia financiera de la empresa. Su experiencia en análisis financiero y planificación estratégica ha sido clave para el éxito de la empresa.",
+        "photo": "laura_martinez.jpg"
+      },
+      {
+        "name": "Pedro Ruiz",
+        "role": "CMO",
+        "bio": "Pedro Ruiz es el Director de Marketing y lidera las estrategias de marketing digital y de producto. Su creatividad y enfoque en el cliente han sido fundamentales para el crecimiento de la marca.",
+        "photo": "pedro_ruiz.jpg"
+      }
+    ]
+  }
+  

@@ -1,0 +1,51 @@
+{
+    "nombreCliente": "Ingrese su nombre",
+    "eleccionComida": "Ingrese el nombre del plato que desea",
+    "preciosComida": {
+        "papas": 10,
+        "milanesa": 20,
+        "carne roja": 30,
+        "pechuga": 25,
+        "ensalada": 15
+    },
+    "comidasDisponibles": [
+        "papas",
+        "milanesa",
+        "carne roja",
+        "pechuga",
+        "ensalada"
+    ],
+    "formulario": {
+        "nombreCliente": {
+            "label": "Nombre del Cliente",
+            "type": "text",
+            "id": "nombreCliente",
+            "required": true
+        },
+        "eleccionComida": {
+            "label": "Elija su Comida",
+            "type": "text",
+            "id": "eleccionComida",
+            "required": true
+        },
+        "submitButton": {
+            "type": "submit",
+            "class": "btn btn-primary",
+            "text": "Enviar"
+        }
+    },
+    "localStorage": {
+        "preciosComida": {
+            "papas": 10,
+            "milanesa": 20,
+            "carne roja": 30,
+            "pechuga": 25,
+            "ensalada": 15
+        }
+    },
+    "jsonDataFile": "./pre-entregaN°3/data/comidas.json",
+    "loadDataButton": {
+        "id": "loadDataBtn",
+        "text": "Cargar Datos"
+    }
+}
