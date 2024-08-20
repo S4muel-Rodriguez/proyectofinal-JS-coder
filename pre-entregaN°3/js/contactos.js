@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Cargar la librería Lodash (asegúrate de incluir el script en tu HTML)
+    console.log('Lodash version:', _.VERSION); // Verifica que Lodash esté cargado
+
     // Función para capturar entradas mediante prompt()
     const captureInput = (message) => {
         let input = prompt(message);
@@ -24,13 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     order.comment = captureInput('¿Algún comentario adicional para tu orden?');
 
     // Validar que todos los campos estén llenos
-    let isValid = true;
-    for (let key in order) {
-        if (order[key] === '' || (key === 'quantity' && !isPositive(order[key]))) {
-            isValid = false;
-            break;
-        }
-    }
+    let isValid = _.every(order, (value) => value !== '' && (typeof value !== 'number' || isPositive(value)));
 
     // Procesamiento esencial del simulador
     if (isValid) {
@@ -38,39 +35,49 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalPrice = calculateTotal(order.quantity, pricePerUnit);
         let hasComment = order.comment.length > 0;
 
-        // Resultados en consola
-        console.log(`Comida: ${order.food}`);
-        console.log(`Bebida: ${order.drink}`);
-        console.log(`Cantidad: ${order.quantity}`);
-        console.log(`Comentario: ${order.comment}`);
-        console.log(`Precio total: $${totalPrice}`);
-        console.log(`Tiene comentario: ${hasComment}`);
+        // Generación de elementos del DOM
+        const resultsDiv = document.createElement('div');
+        resultsDiv.innerHTML = `
+            <p>Comida: ${order.food}</p>
+            <p>Bebida: ${order.drink}</p>
+            <p>Cantidad: ${order.quantity}</p>
+            <p>Comentario: ${order.comment}</p>
+            <p>Precio total: $${totalPrice}</p>
+            <p>Tiene comentario: ${hasComment ? 'Sí' : 'No'}</p>
+        `;
+        document.body.appendChild(resultsDiv);
 
         // Notificación de resultados con alert()
-        alert(`Comida: ${order.food}`);
-        alert(`Bebida: ${order.drink}`);
-        alert(`Cantidad: ${order.quantity}`);
-        alert(`Comentario: ${order.comment}`);
-        alert(`Precio total: $${totalPrice}`);
-        alert(`Tiene comentario: ${hasComment}`);
+        alert(`Detalles de la orden:\nComida: ${order.food}\nBebida: ${order.drink}\nCantidad: ${order.quantity}\nComentario: ${order.comment}\nPrecio total: $${totalPrice}\nTiene comentario: ${hasComment}`);
     } else {
         alert('Por favor, completa todos los campos correctamente.');
     }
+
+    // Carga de datos desde un JSON local o API externa usando fetch
+    const fetchMenuData = () => {
+        fetch('pre-entregaN°3/js/comidas.json') // Ruta del archivo JSON local
+            .then(response => response.json())
+            .then(data => {
+                console.log('Menú cargado:', data);
+                // Mostrar datos en el DOM
+                const menuDiv = document.createElement('div');
+                menuDiv.innerHTML = `<h3>Menú disponible:</h3>`;
+                data.menu.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.textContent = `${item.name}: $${item.price}`;
+                    menuDiv.appendChild(itemDiv);
+                });
+                document.body.appendChild(menuDiv);
+            })
+            .catch(error => {
+                console.error('Error al cargar el menú:', error);
+                alert('Hubo un problema al cargar el menú.');
+            });
+    };
+
+    // Evento para cargar el menú
+    const loadMenuButton = document.createElement('button');
+    loadMenuButton.textContent = 'Cargar Menú';
+    loadMenuButton.addEventListener('click', fetchMenuData);
+    document.body.appendChild(loadMenuButton);
 });
-
-
-// Optimización utilizando operadores lógicos y ternarios
-const isPositive = (number) => number > 0;
-
-// Validación de cantidad positiva usando operador lógico AND
-order.quantity = isPositive(order.quantity) ? order.quantity : 0;
-
-// Mostrar resultados usando operadores ternarios
-console.log(`Cantidad: ${order.quantity}`);
-console.log(`Tiene comentario: ${order.comment.length > 0 ? 'Sí' : 'No'}`);
-
-// Desestructuración para obtener cantidad y comentario
-const { quantity, comment } = order;
-
-// Mostrar resultados en alertas con spread operator para copiar el objeto
-alert(`Detalles de la orden:\nComida: ${order.food}\nBebida: ${order.drink}\nCantidad: ${quantity}\nComentario: ${comment}`);

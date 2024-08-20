@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Cargar la librería Lodash (asegúrate de incluir el script en tu HTML)
+    console.log('Lodash version:', _.VERSION); // Verifica que Lodash esté cargado
+
     // Declaración de arrays y objetos
     const restaurants = [
-        { name: 'Pin Pun', url: 'https://www.instagram.com/pinpunlomas/', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.6760245829523!2d-58.408907023483444!3d-34.76375307289744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd3193abd8235%3A0xf355be1ab3f3056a!2sPin%20Pun!5e0!3m2!1ses-419!2sar!4v1712711353899!5m2!1ses-419!2sar' },
-        { name: 'Las Medialunas del Abuelo', url: 'https://www.instagram.com/lasmedialunasdelabuelo/', map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.8284902288997!2d-58.405567016866655!3d-34.75991299655742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd2920b587939%3A0x62696178577701d1!2sLas%20Medialunas%20del%20Abuelo!5e0!3m2!1ses-419!2sar!4v1712711501699!5m2!1ses-419!2sar' }
+        { name: 'Pin Pun', url: 'https://www.instagram.com/pinpunlomas/', map: 'https://www.google.com/maps/embed?...' },
+        { name: 'Las Medialunas del Abuelo', url: 'https://www.instagram.com/lasmedialunasdelabuelo/', map: 'https://www.google.com/maps/embed?...' }
     ];
 
-    // Función para mostrar restaurantes en el dom
+    // Función para mostrar restaurantes en el DOM
     const displayRestaurants = (restaurants) => {
         const main = document.querySelector('main');
-        main.innerHTML = '<h2>Redes sociales de los restaurante:</h2>';
+        main.innerHTML = '<h2>Redes sociales de los restaurantes:</h2>';
 
         restaurants.forEach((restaurant) => {
             const listItem = document.createElement('li');
@@ -33,19 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar los restaurantes al cargar la página
     displayRestaurants(restaurants);
 
-    // Capturar eventos del dom
+    // Capturar eventos del DOM
     document.querySelector('.nav-list').addEventListener('click', (event) => {
         if (event.target.tagName === 'A') {
             alert(`Navegando a ${event.target.textContent}`);
         }
     });
 
-    // Función buscando restuarante
+    // Función para buscar restaurante por nombre
     const findRestaurantByName = (name) => {
         return restaurants.find((restaurant) => restaurant.name.toLowerCase() === name.toLowerCase());
     };
 
-    // buscar restaurante
+    // Buscar restaurante
     const searchRestaurant = () => {
         const restaurantName = prompt('Introduce el nombre del restaurante que deseas buscar:');
         const foundRestaurant = findRestaurantByName(restaurantName);
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    //  botón de búsqueda de restaurantes
+    // Botón de búsqueda de restaurantes
     const searchButton = document.createElement('button');
     searchButton.textContent = 'Buscar Restaurante';
     searchButton.addEventListener('click', searchRestaurant);
@@ -81,38 +84,38 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log('No hay restaurantes disponibles.');
     }
-});
 
-// Almacenamiento en localStorage
-const saveToLocalStorage = (key, data) => {
-    localStorage.setItem(key, JSON.stringify(data));
-};
+    // Almacenamiento en localStorage
+    const saveToLocalStorage = (key, data) => {
+        localStorage.setItem(key, JSON.stringify(data));
+    };
 
-const retrieveFromLocalStorage = (key) => {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-};
+    const retrieveFromLocalStorage = (key) => {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    };
 
-// Ejemplo de uso del almacenamiento
-const key = 'dato de restaurante';
-saveToLocalStorage(key, restaurants);
-const retrievedData = retrieveFromLocalStorage(key);
-console.log('Datos recuperados del localStorage:', retrievedData);
+    // Ejemplo de uso del almacenamiento
+    const key = 'restaurantData';
+    saveToLocalStorage(key, restaurants);
+    const retrievedData = retrieveFromLocalStorage(key);
+    console.log('Datos recuperados del localStorage:', retrievedData);
 
-// Cargar datos desde el archivo JSON usando fetch
-const loadRestaurants = async () => {
-    try {
-        const response = await fetch('data.json');
-        if (!response.ok) {
-            throw new Error(`Error ${response.status}: ${response.statusText}`);
+    // Cargar datos desde el archivo JSON usando fetch
+    const loadRestaurants = async () => {
+        try {
+            const response = await fetch('pre-entregaN°3/js/masrestaurantes.js'); // Ruta del archivo JSON
+            if (!response.ok) {
+                throw new Error(`Error ${response.status}: ${response.statusText}`);
+            }
+            const data = await response.json();
+            displayRestaurants(data.restaurants);
+        } catch (error) {
+            console.error('Error al cargar los datos:', error);
         }
-        const data = await response.json();
-        displayRestaurants(data.restaurants);
-    } catch (error) {
-        console.error('Error al cargar los datos:', error);
-    }
-};
+    };
 
-// Llamada a la función para cargar los datos al iniciar la página
-loadRestaurants();
+    // Llamada a la función para cargar los datos al iniciar la página
+    loadRestaurants();
+});
 
